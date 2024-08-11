@@ -61,7 +61,9 @@ async def root(request: Request):
     sources = res["source_documents"]
     print('Response from LLM ---> ', answer)
 
-    return JSONResponse(content={'status': 200, 'response': answer})
+    return JSONResponse(content={'status': 200,
+                                 'response': answer,
+                                 'sources': sources})
 
 
 asyncio.run(serve(app, config))
